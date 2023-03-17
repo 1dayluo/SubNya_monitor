@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask App Example</title>
+</head>
+<body>
+  <h1>Output Files</h1>
+  <ul>
+    {% for file in files %}
+      <li><a href="{{ url_for('static', filename='output/' + file) }}">{{ file }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

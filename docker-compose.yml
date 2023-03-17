@@ -5,15 +5,15 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./config/config.yml:/root/.config/subnya/config.yml # 映射配置文件到宿主机的./config目录
+      - ./config/:/root/.config/subnya/ # 映射配置文件到宿主机的./config目录
       - ./target:/target # 映射本地文件到容器的./test目录
       - ./db:/root/.config/subnya/db # 映射sqlite数据库到宿主机的./db目录
       - ./output:/output # 映射输出结果到宿主机的./output目录 
-    depends_on:
-      - redis-subnya # 依赖redis容器
+  #   depends_on:
+  #     - redis-subnya # 依赖redis容器
   
-  redis-subnya:
-    image: redis # 使用redis镜像
-    container_name: redis-subnya # 设置容器名称为redis-subnya 
-    ports:
-      - "6379:6379" # 映射端口号为6379 
+  # redis-subnya:
+  #   image: redis # 使用redis镜像
+  #   container_name: redis-subnya # 设置容器名称为redis-subnya 
+  #   ports:
+  #     - "6379:6379" # 映射端口号为6379 
